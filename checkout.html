@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — Apex Fitness Club Membership (Demo)</title>
+<meta name="description" content="Demo checkout for Apex Fitness Club membership plans. Choose BASIC, PRO or ELITE, pick a duration and complete a simulated demo payment — no real money is charged.">
+<meta name="theme-color" content="#0D0D0D">
+<link rel="canonical" href="https://wwwritikraushan14.github.io/apex-fitness-club/checkout.html">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:title" content="Checkout — Apex Fitness Club (Demo)">
+<meta property="og:description" content="Demo checkout for Apex Fitness Club membership. No real money is charged.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wwwritikraushan14.github.io/apex-fitness-club/checkout.html">
+<meta property="og:image" content="https://wwwritikraushan14.github.io/apex-fitness-club/hero.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Checkout — Apex Fitness Club (Demo)">
+<meta name="twitter:description" content="Demo checkout for Apex Fitness Club membership. No real money is charged.">
+<meta name="twitter:image" content="https://wwwritikraushan14.github.io/apex-fitness-club/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ExerciseGym",
+  "name": "Apex Fitness Club",
+  "url": "https://wwwritikraushan14.github.io/apex-fitness-club/",
+  "address": { "@type": "PostalAddress", "addressCountry": "IN" },
+  "telephone": "+91 82921 60777",
+  "openingHours": "Mo-Su 05:00-22:00",
+  "priceRange": "₹₹"
+}
+</script>
+</head>
+<body>
+
+<!-- Branded loading screen: fades out once the page is ready (see app.js) -->
+<div class="loader" id="pageLoader" aria-hidden="true">
+  <div class="loader-inner">
+    <span class="loader-mark">A</span>
+    <span class="loader-name">APEX <em>FITNESS CLUB</em></span>
+    <span class="loader-bar"><span></span></span>
+    <span class="loader-skip">Tap anywhere to skip</span>
+  </div>
+</div>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="Apex Fitness Club — home">
+      <span class="brand-mark" aria-hidden="true">A</span>
+      <span class="brand-text">APEX <em>FITNESS CLUB</em></span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#programs">Programs</a>
+      <a href="index.html#trainers">Trainers</a>
+      <a href="index.html#plans">Membership Plans</a>
+      <a href="index.html#gallery">Gallery</a>
+      <a href="index.html#contact">Contact</a>
+      <a class="btn btn-orange btn-sm" href="index.html#join">Join Now</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="kicker">Membership Checkout</p>
+    <h1>Complete your membership</h1>
+    <p>Choose your plan and duration, fill in your details and finish with a demo payment. Nothing here charges real money.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:44px">
+  <div class="wrap">
+    <div class="demo-banner" role="note"><strong>DEMO PAYMENT ONLY</strong> — No real money will be charged. This is a frontend demo: payments are simulated, no real card details, CVV, UPI PINs, banking passwords or OTPs are ever collected.</div>
+
+    <!-- ===== CHECKOUT FORM + SUMMARY ===== -->
+    <div class="checkout-grid" id="checkoutMain">
+      <div class="form-card">
+        <form id="checkoutForm" novalidate>
+          <h2 style="font-size:1.25rem;text-transform:uppercase;margin-bottom:14px">1. Choose your plan</h2>
+          <div class="plan-pills" id="planPills" role="radiogroup" aria-label="Membership plan">
+            <button type="button" class="plan-pill" data-plan="basic" role="radio" aria-checked="false">
+              <div class="pp-name">Basic</div><div class="pp-price">₹999</div><div class="pp-per">per month</div>
+            </button>
+            <button type="button" class="plan-pill" data-plan="pro" role="radio" aria-checked="false">
+              <div class="pp-name">Pro</div><div class="pp-price">₹1,999</div><div class="pp-per">per month</div>
+            </button>
+            <button type="button" class="plan-pill" data-plan="elite" role="radio" aria-checked="false">
+              <div class="pp-name">Elite</div><div class="pp-price">₹2,999</div><div class="pp-per">per month</div>
+            </button>
+          </div>
+
+          <h2 style="font-size:1.25rem;text-transform:uppercase;margin:24px 0 14px">2. Choose duration</h2>
+          <div class="dur-pills" id="durPills" role="radiogroup" aria-label="Membership duration">
+            <button type="button" class="dur-pill selected" data-months="1" role="radio" aria-checked="true">1 Month</button>
+            <button type="button" class="dur-pill" data-months="3" role="radio" aria-checked="false">3 Months</button>
+            <button type="button" class="dur-pill" data-months="6" role="radio" aria-checked="false">6 Months</button>
+            <button type="button" class="dur-pill" data-months="12" role="radio" aria-checked="false">12 Months</button>
+          </div>
+
+          <h2 style="font-size:1.25rem;text-transform:uppercase;margin:28px 0 14px">3. Your details</h2>
+          <div class="field">
+            <label for="coName">Full name *</label>
+            <input id="coName" type="text" placeholder="Your full name" autocomplete="name" required>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="coEmail">Email *</label>
+              <input id="coEmail" type="email" placeholder="you@example.com" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="coPhone">Mobile number *</label>
+              <input id="coPhone" type="tel" inputmode="numeric" placeholder="10-digit mobile number" autocomplete="tel" required>
+              <p class="field-error" id="coPhoneError" hidden>Enter a valid 10-digit Indian mobile number starting with 6, 7, 8 or 9.</p>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="coAge">Age *</label>
+              <input id="coAge" type="number" min="14" max="80" placeholder="e.g. 25" required>
+            </div>
+            <div class="field">
+              <label for="coGoal">Fitness goal *</label>
+              <select id="coGoal" required>
+                <option value="Weight Loss">Weight Loss</option>
+                <option value="Muscle Building">Muscle Building</option>
+                <option value="Strength">Strength</option>
+                <option value="Fitness &amp; Stamina">Fitness &amp; Stamina</option>
+                <option value="Yoga &amp; Flexibility">Yoga &amp; Flexibility</option>
+                <option value="General Fitness">General Fitness</option>
+              </select>
+            </div>
+          </div>
+
+          <h2 style="font-size:1.25rem;text-transform:uppercase;margin:28px 0 14px">4. Payment method <span style="color:var(--muted2);font-family:'Inter',sans-serif;font-size:.8rem;text-transform:none;letter-spacing:0">(demo only)</span></h2>
+          <div class="pay-methods" id="payMethods" role="radiogroup" aria-label="Payment method">
+            <button type="button" class="pay-method selected" data-method="upi" role="radio" aria-checked="true">UPI</button>
+            <button type="button" class="pay-method" data-method="card" role="radio" aria-checked="false">Debit / Credit Card</button>
+            <button type="button" class="pay-method" data-method="netbanking" role="radio" aria-checked="false">Net Banking</button>
+            <button type="button" class="pay-method" data-method="demo" role="radio" aria-checked="false">Demo Payment</button>
+          </div>
+
+          <div class="pay-panel" id="panel-upi">
+            <div class="field" style="margin-bottom:0">
+              <label for="upiId">UPI ID</label>
+              <input id="upiId" type="text" placeholder="demo@upi" autocomplete="off">
+              <p class="pay-hint"><strong>Demo only.</strong> Use the placeholder value. Never enter your real UPI ID — and never share your UPI PIN with anyone.</p>
+            </div>
+          </div>
+          <div class="pay-panel" id="panel-card" hidden>
+            <div class="field">
+              <label for="cardNum">Card number</label>
+              <input id="cardNum" type="text" inputmode="numeric" placeholder="4242 4242 4242 4242" autocomplete="off" maxlength="19">
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="cardExp">Expiry (MM/YY)</label>
+                <input id="cardExp" type="text" inputmode="numeric" placeholder="12/28" autocomplete="off" maxlength="5">
+              </div>
+              <div class="field">
+                <label for="cardName">Name on card</label>
+                <input id="cardName" type="text" placeholder="As printed on the card" autocomplete="off">
+              </div>
+            </div>
+            <p class="pay-hint"><strong>Demo only.</strong> Use the test number shown above. Never enter a real card number. This demo never asks for CVV, PINs or OTPs.</p>
+          </div>
+          <div class="pay-panel" id="panel-netbanking" hidden>
+            <div class="field" style="margin-bottom:0">
+              <label for="bankSelect">Select your bank</label>
+              <select id="bankSelect">
+                <option value="">Choose a bank…</option>
+                <option>State Bank of India</option>
+                <option>HDFC Bank</option>
+                <option>ICICI Bank</option>
+                <option>Kotak Mahindra Bank</option>
+                <option>Punjab National Bank</option>
+              </select>
+              <p class="pay-hint"><strong>Demo only.</strong> You will not be redirected to any bank. Never enter banking passwords or OTPs anywhere.</p>
+            </div>
+          </div>
+          <div class="pay-panel" id="panel-demo" hidden>
+            <p class="pay-hint" style="margin-top:0"><strong>No details needed.</strong> Demo Payment completes the order instantly without any payment information — perfect for testing the flow.</p>
+          </div>
+
+          <p class="form-error" id="coFormError" role="alert" hidden></p>
+          <button class="btn btn-orange btn-block" type="submit" id="payBtn" style="margin-top:20px">Pay Now</button>
+          <p style="text-align:center;margin-top:12px">
+            <button type="button" class="link-btn" id="simulateFail">Simulate failed payment</button>
+          </p>
+          <p class="form-note">Demo checkout — the order is saved only in this browser (localStorage). No real payment is processed.</p>
+        </form>
+      </div>
+
+      <!-- Order summary -->
+      <aside class="form-card summary-card" aria-label="Order summary">
+        <h2 style="font-size:1.25rem;text-transform:uppercase;margin-bottom:8px">Order Summary</h2>
+        <div class="summary-row"><span>Plan</span><strong id="sumPlan">PRO</strong></div>
+        <div class="summary-row"><span>Price / month</span><strong id="sumMonthly">₹1,999</strong></div>
+        <div class="summary-row"><span>Duration</span><strong id="sumDuration">1 month</strong></div>
+        <div class="summary-row"><span>Payment method</span><strong id="sumMethod">UPI</strong></div>
+        <div class="summary-total"><span>Total</span><span id="sumTotal">₹1,999</span></div>
+        <p class="pay-hint" style="margin-top:14px"><strong>DEMO PAYMENT ONLY</strong> — No real money will be charged.</p>
+        <a class="btn btn-ghost btn-block" href="index.html#plans" style="margin-top:16px">← Change Plan</a>
+      </aside>
+    </div>
+
+    <!-- ===== SUCCESS ===== -->
+    <div class="form-card result-box result-ok" id="successBox" hidden>
+      <span class="result-ic" aria-hidden="true">✓</span>
+      <h2>Payment Successful!</h2>
+      <p>Welcome to Apex Fitness Club. Your demo membership is active.</p>
+      <div class="receipt-card" id="receiptCard">
+        <h3>Demo Receipt — Apex Fitness Club</h3>
+        <div class="summary-row"><span>Transaction ID</span><strong id="rcTxn">—</strong></div>
+        <div class="summary-row"><span>Membership ID</span><strong id="rcMember">—</strong></div>
+        <div class="summary-row"><span>Name</span><strong id="rcName">—</strong></div>
+        <div class="summary-row"><span>Plan</span><strong id="rcPlan">—</strong></div>
+        <div class="summary-row"><span>Duration</span><strong id="rcDuration">—</strong></div>
+        <div class="summary-row"><span>Amount paid</span><strong id="rcAmount">—</strong></div>
+        <div class="summary-row"><span>Payment method</span><strong id="rcMethod">—</strong></div>
+        <div class="summary-row"><span>Payment date</span><strong id="rcDate">—</strong></div>
+        <div class="summary-row"><span>Valid till</span><strong id="rcExpiry">—</strong></div>
+      </div>
+      <p class="pay-hint"><strong>DEMO PAYMENT ONLY</strong> — No real money was charged. This receipt is a demo record.</p>
+      <div class="result-actions">
+        <button class="btn btn-orange" id="downloadReceiptBtn" type="button">Download Receipt (PDF)</button>
+        <a class="btn btn-ghost" href="dashboard.html">View My Dashboard</a>
+        <a class="btn btn-ghost" href="index.html">Return to Homepage</a>
+      </div>
+    </div>
+
+    <!-- ===== FAILURE ===== -->
+    <div class="form-card result-box result-fail" id="failBox" hidden>
+      <span class="result-ic" aria-hidden="true">✕</span>
+      <h2>Payment Failed</h2>
+      <p id="failText">The demo payment could not be completed. No money was charged. Please check your details and try again.</p>
+      <div class="result-actions">
+        <button class="btn btn-orange" id="retryBtn" type="button">Try Again</button>
+        <a class="btn btn-ghost" href="index.html">Return to Homepage</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <a class="brand" href="index.html" aria-label="Apex Fitness Club — home">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span class="brand-text">APEX <em>FITNESS CLUB</em></span>
+      </a>
+      <p class="footer-tag">More than a gym — a lifestyle. Strength, fitness and transformation for every body, every level, every day.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <nav aria-label="Footer quick links">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#programs">Programs</a>
+        <a href="index.html#plans">Membership Plans</a>
+        <a href="dashboard.html">Member Dashboard</a>
+        <a href="admin.html">Admin (Demo)</a>
+      </nav>
+    </div>
+    <div>
+      <h4>Programs</h4>
+      <ul class="footer-list">
+        <li><a href="index.html#programs">Weight Training</a></li>
+        <li><a href="index.html#programs">Personal Training</a></li>
+        <li><a href="index.html#programs">Cardio Training</a></li>
+        <li><a href="index.html#programs">CrossFit</a></li>
+        <li><a href="index.html#programs">Muscle Building</a></li>
+        <li><a href="index.html#programs">Yoga &amp; Flexibility</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul class="footer-list">
+        <li>India</li>
+        <li><a href="tel:+918292160777">+91 82921 60777</a></li>
+        <li><a href="mailto:hello@apexfitnessclub.demo">hello@apexfitnessclub.demo</a></li>
+        <li>Mon – Sun: 5:00 AM – 10:00 PM</li>
+      </ul>
+    </div>
+  </div>
+  <p class="footer-base">© <span id="year">2026</span> Apex Fitness Club. All rights reserved. — Demo website: prices and payments are sample demo content. No real money is charged.</p>
+</footer>
+
+<a class="wa-float" href="https://wa.me/918292160777?text=Hello%20Apex%20Fitness%20Club!%20I%20want%20to%20know%20more." target="_blank" rel="noopener" aria-label="Chat with Apex Fitness Club on WhatsApp">
+  <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path fill="currentColor" d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 5.9L4 28l7.3-1.5c1.7.9 3.7 1.4 5.7 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22.3c-1.9 0-3.7-.5-5.3-1.4l-.4-.2-4.3.9.9-4.2-.2-.4c-1-1.6-1.5-3.5-1.5-5.4 0-5.6 4.6-10.2 10.2-10.2S26.2 9.4 26.2 15 22.6 25.3 16 25.3zm5.7-7.6c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.9-.8 2.1-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+</a>
+
+<!-- Toast notifications (see app.js apexToast) -->
+<div class="toast-wrap" id="toastWrap" aria-live="polite"></div>
+
+<script src="app.js" defer></script>
+<script src="checkout.js" defer></script>
+</body>
+</html>

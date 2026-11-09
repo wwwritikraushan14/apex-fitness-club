@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard (Demo) — Apex Fitness Club</title>
+<meta name="description" content="Demo admin dashboard for Apex Fitness Club — member totals, demo payment records, recent registrations and contact inquiries. All data is local demo data.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0D0D0D">
+<link rel="canonical" href="https://wwwritikraushan14.github.io/apex-fitness-club/admin.html">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="admin">
+
+<!-- Branded loading screen: fades out once the page is ready (see app.js) -->
+<div class="loader" id="pageLoader" aria-hidden="true">
+  <div class="loader-inner">
+    <span class="loader-mark">A</span>
+    <span class="loader-name">APEX <em>FITNESS CLUB</em></span>
+    <span class="loader-bar"><span></span></span>
+    <span class="loader-skip">Tap anywhere to skip</span>
+  </div>
+</div>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="Apex Fitness Club — home">
+      <span class="brand-mark" aria-hidden="true">A</span>
+      <span class="brand-text">APEX <em>FITNESS CLUB</em></span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="index.html#plans">Membership Plans</a>
+      <a href="dashboard.html">Member Dashboard</a>
+      <a href="index.html#contact">Contact</a>
+      <a class="btn btn-orange btn-sm" href="index.html#join">Join Now</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="kicker">Club Management</p>
+    <h1>Admin Dashboard <span class="admin-badge">Demo</span></h1>
+    <p>Demo admin view — totals, demo payments, registrations and inquiries. All data is stored locally in this browser (localStorage). No real authentication, no real members.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:44px">
+  <div class="wrap">
+    <div class="demo-banner" role="note"><strong>DEMO ADMIN ONLY</strong> — This page shows local demo data from this browser. It is not a real admin panel and has no real login.</div>
+
+    <div class="admin-stats">
+      <div class="admin-stat"><div class="num" id="statMembers">0</div><div class="lbl">Registered Members</div></div>
+      <div class="admin-stat"><div class="num" id="statOrders">0</div><div class="lbl">Demo Payments</div></div>
+      <div class="admin-stat"><div class="num" id="statRevenue">₹0</div><div class="lbl">Demo Revenue</div></div>
+      <div class="admin-stat"><div class="num" id="statInquiries">0</div><div class="lbl">Contact Inquiries</div></div>
+    </div>
+
+    <div class="admin-actions">
+      <button class="btn btn-ghost btn-sm" id="exportCsvBtn" type="button">Download Demo Data (CSV)</button>
+      <button class="btn btn-ghost btn-sm" id="clearDemoBtn" type="button">Clear All Demo Data</button>
+    </div>
+
+    <div class="panel" style="margin-bottom:22px">
+      <h2>Plans <span class="accent">Selected</span></h2>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>Plan</th><th>Members</th><th>Demo Revenue</th></tr></thead>
+          <tbody id="plansBody"></tbody>
+        </table>
+      </div>
+      <p class="demo-note" id="plansEmpty" hidden>No plans selected yet — demo checkouts will appear here.</p>
+    </div>
+
+    <div class="panel" style="margin-bottom:22px">
+      <h2>Demo Payment <span class="accent">Records</span></h2>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>Date</th><th>Transaction ID</th><th>Member</th><th>Plan</th><th>Method</th><th>Amount</th><th>Status</th></tr></thead>
+          <tbody id="ordersBody"></tbody>
+        </table>
+      </div>
+      <p class="demo-note" id="ordersEmpty" hidden>No demo payments yet.</p>
+    </div>
+
+    <div class="panel" style="margin-bottom:22px">
+      <h2>Recent <span class="accent">Registrations</span></h2>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>Date</th><th>Membership ID</th><th>Name</th><th>Email</th><th>Plan</th><th>Goal</th></tr></thead>
+          <tbody id="regsBody"></tbody>
+        </table>
+      </div>
+      <p class="demo-note" id="regsEmpty" hidden>No registrations yet.</p>
+    </div>
+
+    <div class="panel">
+      <h2>Contact <span class="accent">Inquiries</span></h2>
+      <div class="table-wrap">
+        <table class="data">
+          <thead><tr><th>Date</th><th>Name</th><th>Email</th><th>Phone</th><th>Goal</th><th>Message</th></tr></thead>
+          <tbody id="inqBody"></tbody>
+        </table>
+      </div>
+      <p class="demo-note" id="inqEmpty" hidden>No contact inquiries yet.</p>
+    </div>
+    <p class="demo-note">Demo data only — stored in this browser (localStorage). Clearing browser data removes it.</p>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <a class="brand" href="index.html" aria-label="Apex Fitness Club — home">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span class="brand-text">APEX <em>FITNESS CLUB</em></span>
+      </a>
+      <p class="footer-tag">More than a gym — a lifestyle. Strength, fitness and transformation for every body, every level, every day.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <nav aria-label="Footer quick links">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#programs">Programs</a>
+        <a href="index.html#plans">Membership Plans</a>
+        <a href="dashboard.html">Member Dashboard</a>
+      </nav>
+    </div>
+    <div>
+      <h4>Programs</h4>
+      <ul class="footer-list">
+        <li><a href="index.html#programs">Weight Training</a></li>
+        <li><a href="index.html#programs">Personal Training</a></li>
+        <li><a href="index.html#programs">Cardio Training</a></li>
+        <li><a href="index.html#programs">CrossFit</a></li>
+        <li><a href="index.html#programs">Muscle Building</a></li>
+        <li><a href="index.html#programs">Yoga &amp; Flexibility</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul class="footer-list">
+        <li>India</li>
+        <li><a href="tel:+918292160777">+91 82921 60777</a></li>
+        <li><a href="mailto:hello@apexfitnessclub.demo">hello@apexfitnessclub.demo</a></li>
+        <li>Mon – Sun: 5:00 AM – 10:00 PM</li>
+      </ul>
+    </div>
+  </div>
+  <p class="footer-base">© <span id="year">2026</span> Apex Fitness Club. All rights reserved. — Demo admin: local demo data only.</p>
+</footer>
+
+<a class="wa-float" href="https://wa.me/918292160777?text=Hello%20Apex%20Fitness%20Club!%20I%20want%20to%20know%20more." target="_blank" rel="noopener" aria-label="Chat with Apex Fitness Club on WhatsApp">
+  <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path fill="currentColor" d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 5.9L4 28l7.3-1.5c1.7.9 3.7 1.4 5.7 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22.3c-1.9 0-3.7-.5-5.3-1.4l-.4-.2-4.3.9.9-4.2-.2-.4c-1-1.6-1.5-3.5-1.5-5.4 0-5.6 4.6-10.2 10.2-10.2S26.2 9.4 26.2 15 22.6 25.3 16 25.3zm5.7-7.6c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.9-.8 2.1-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+</a>
+
+<!-- Toast notifications (see app.js apexToast) -->
+<div class="toast-wrap" id="toastWrap" aria-live="polite"></div>
+
+<script src="app.js" defer></script>
+<script src="dashboard.js" defer></script>
+</body>
+</html>

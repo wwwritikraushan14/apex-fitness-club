@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wwwritikraushan14.github.io/apex-fitness-club/sitemap.xml
