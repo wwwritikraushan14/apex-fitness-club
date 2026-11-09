@@ -138,6 +138,13 @@ function apexSetLoading(btn, loading, busyText) {
 
 var apexReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+/* WebP support (one canvas test): the lightbox serves WebP when available, JPG otherwise */
+var apexSupportsWebp = (function () {
+  try {
+    return document.createElement("canvas").toDataURL("image/webp").indexOf("data:image/webp") === 0;
+  } catch (e) { return false; }
+})();
+
 /* ---------- Branded loading screen ---------- */
 (function () {
   var loader = document.getElementById("pageLoader");
@@ -198,6 +205,22 @@ var apexReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").ma
   window.addEventListener("scroll", function () {
     if (!ticking) { ticking = true; requestAnimationFrame(update); }
   }, { passive: true });
+})();
+
+/* ---------- Pause infinite animations while their section is off-screen ---------- */
+(function () {
+  if (!("IntersectionObserver" in window) || apexReducedMotion) return;
+  function pauseWhenHidden(section, animated) {
+    if (!section || !animated) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        animated.style.animationPlayState = entry.isIntersecting ? "" : "paused";
+      });
+    });
+    io.observe(section);
+  }
+  pauseWhenHidden(document.querySelector(".marquee"), document.querySelector(".marquee-track"));
+  pauseWhenHidden(document.querySelector(".hero"), document.querySelector(".hero-media img"));
 })();
 
 /* ---------- Magnetic primary CTAs (desktop, fine pointers only) ---------- */
@@ -352,7 +375,12 @@ var apexReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").ma
     current = (i + tiles.length) % tiles.length;
     var tile = tiles[current];
     var img = tile.querySelector("img");
-    lbImg.src = tile.getAttribute("data-full");
+    var full = tile.getAttribute("data-full");
+    if (apexSupportsWebp) full = full.replace(/\.jpg$/i, ".webp");
+    lbImg.onerror = function () { // fall back to the JPG if the WebP is ever missing
+      if (/\.webp$/i.test(lbImg.src)) { lbImg.onerror = null; lbImg.src = tile.getAttribute("data-full"); }
+    };
+    lbImg.src = full;
     lbImg.alt = img ? img.alt : "";
     lbCaption.textContent = tile.getAttribute("data-caption") || "";
   }

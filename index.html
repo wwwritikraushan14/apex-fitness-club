@@ -23,8 +23,8 @@
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="hero.jpg" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" imagesrcset="hero-800.webp 800w, hero-1280.webp 1280w, hero.webp 1920w" imagesizes="100vw" fetchpriority="high">
 <link rel="stylesheet" href="styles.css">
 <script type="application/ld+json">
 {
@@ -78,7 +78,7 @@
 <!-- ============ HERO ============ -->
 <section class="hero" id="home">
   <div class="hero-media" aria-hidden="true">
-    <img src="hero.jpg" alt="" fetchpriority="high" width="1920" height="1280">
+    <picture><source srcset="hero-800.webp 800w, hero-1280.webp 1280w, hero.webp 1920w" sizes="100vw" type="image/webp"><img src="hero.jpg" alt="" srcset="hero-800.jpg 800w, hero-1280.jpg 1280w, hero.jpg 1920w" sizes="100vw" fetchpriority="high" width="1920" height="1280"></picture>
     <div class="hero-overlay"></div>
   </div>
   <div class="wrap hero-content">
@@ -123,8 +123,8 @@
 <section class="section section-alt" id="about">
   <div class="wrap about-grid">
     <div class="about-media reveal">
-      <div class="main-img"><img src="gal-05.jpg" alt="Modern gym interior with rows of exercise machines" loading="lazy" width="1200" height="801"></div>
-      <div class="small-img"><img src="about-coaches.jpg" alt="Two fitness coaches standing together in a modern gym" loading="lazy" width="1200" height="2133"></div>
+      <div class="main-img"><picture><source srcset="gal-05.webp" type="image/webp"><img src="gal-05.jpg" alt="Modern gym interior with rows of exercise machines" loading="lazy" width="1000" height="750"></picture></div>
+      <div class="small-img"><picture><source srcset="about-coaches.webp" type="image/webp"><img src="about-coaches.jpg" alt="Two fitness coaches standing together in a modern gym" loading="lazy" width="960" height="1200"></picture></div>
     </div>
     <div class="about-copy reveal">
       <p class="kicker">About Apex</p>
@@ -150,35 +150,35 @@
     <p class="section-sub reveal">Eight programs, one membership. Mix them however you like — your coach helps you pick what fits your goal.</p>
     <div class="grid-4">
       <article class="card reveal">
-        <div class="card-img"><img src="prog-strength.jpg" alt="Man doing sit-ups on a bench in the gym" loading="lazy" width="1200" height="800"></div>
+        <div class="card-img"><picture><source srcset="prog-strength.webp" type="image/webp"><img src="prog-strength.jpg" alt="Man doing sit-ups on a bench in the gym" loading="lazy" width="800" height="533"></picture></div>
         <div class="card-body"><h3>Weight Training</h3><p>Free weights, racks and machines with coaching on every lift — build real strength, safely.</p><a class="link-arrow" href="#plans">Explore Program →</a></div>
       </article>
       <article class="card reveal">
-        <div class="card-img"><img src="prog-personal.jpg" alt="Trainer spotting a woman doing dumbbell presses" loading="lazy" width="1200" height="800"></div>
+        <div class="card-img"><picture><source srcset="prog-personal.webp" type="image/webp"><img src="prog-personal.jpg" alt="Trainer spotting a woman doing dumbbell presses" loading="lazy" width="800" height="533"></picture></div>
         <div class="card-body"><h3>Personal Training</h3><p>One-to-one coaching with a plan built for your body, your schedule and your goal.</p><a class="link-arrow" href="#plans">Explore Program →</a></div>
       </article>
       <article class="card reveal">
-        <div class="card-img"><img src="prog-cardio.jpg" alt="Man training hard on a rowing machine" loading="lazy" width="1200" height="1800"></div>
+        <div class="card-img"><picture><source srcset="prog-cardio.webp" type="image/webp"><img src="prog-cardio.jpg" alt="Man training hard on a rowing machine" loading="lazy" width="800" height="533"></picture></div>
         <div class="card-body"><h3>Cardio Training</h3><p>Treadmills, rowers and bikes that build stamina and burn calories without the boredom.</p><a class="link-arrow" href="#plans">Explore Program →</a></div>
       </article>
       <article class="card reveal">
-        <div class="card-img"><img src="gal-01.jpg" alt="Member gripping a loaded barbell for a deadlift" loading="lazy" width="1200" height="800"></div>
+        <div class="card-img"><picture><source srcset="gal-01.webp" type="image/webp"><img src="gal-01.jpg" alt="Member gripping a loaded barbell for a deadlift" loading="lazy" width="800" height="533"></picture></div>
         <div class="card-body"><h3>CrossFit</h3><p>High-intensity functional workouts that test everything — strength, speed and grit.</p><a class="link-arrow" href="#plans">Explore Program →</a></div>
       </article>
       <article class="card reveal">
-        <div class="card-img"><img src="gal-08.jpg" alt="Member bench pressing a heavy barbell" loading="lazy" width="1200" height="1800"></div>
+        <div class="card-img"><picture><source srcset="gal-08.webp" type="image/webp"><img src="gal-08.jpg" alt="Member bench pressing a heavy barbell" loading="lazy" width="800" height="533"></picture></div>
         <div class="card-body"><h3>Strength &amp; Conditioning</h3><p>Structured barbell and conditioning work for athletes and anyone who wants to move better.</p><a class="link-arrow" href="#plans">Explore Program →</a></div>
       </article>
       <article class="card reveal">
-        <div class="card-img"><img src="gal-10.jpg" alt="Woman training on a cross trainer machine" loading="lazy" width="1200" height="1800"></div>
+        <div class="card-img"><picture><source srcset="gal-10.webp" type="image/webp"><img src="gal-10.jpg" alt="Woman training on a cross trainer machine" loading="lazy" width="800" height="533"></picture></div>
         <div class="card-body"><h3>Weight Loss Programs</h3><p>Training plus simple nutrition guidance that fits real life — steady fat loss, no crash diets.</p><a class="link-arrow" href="#plans">Explore Program →</a></div>
       </article>
       <article class="card reveal">
-        <div class="card-img"><img src="prog-muscle.jpg" alt="Man doing a dumbbell concentration curl" loading="lazy" width="1200" height="800"></div>
+        <div class="card-img"><picture><source srcset="prog-muscle.webp" type="image/webp"><img src="prog-muscle.jpg" alt="Man doing a dumbbell concentration curl" loading="lazy" width="800" height="533"></picture></div>
         <div class="card-body"><h3>Muscle Building</h3><p>Hypertrophy-focused programs, progressive overload and the food plan to grow on.</p><a class="link-arrow" href="#plans">Explore Program →</a></div>
       </article>
       <article class="card reveal">
-        <div class="card-img"><img src="prog-yoga.jpg" alt="Man doing a deep mobility stretch in the gym" loading="lazy" width="1200" height="800"></div>
+        <div class="card-img"><picture><source srcset="prog-yoga.webp" type="image/webp"><img src="prog-yoga.jpg" alt="Man doing a deep mobility stretch in the gym" loading="lazy" width="800" height="533"></picture></div>
         <div class="card-body"><h3>Yoga &amp; Flexibility</h3><p>Guided stretching, breathwork and mobility flows that keep joints happy and recovery quick.</p><a class="link-arrow" href="#plans">Explore Program →</a></div>
       </article>
     </div>
@@ -193,7 +193,7 @@
     <p class="section-sub reveal">On the floor, not behind a desk. Ask them anything — form, food, or where to start.</p>
     <div class="grid-4">
       <article class="card reveal">
-        <div class="trainer-img"><img src="gal-04.jpg" alt="Portrait of Arjun Singh, fitness instructor in a blue sleeveless top at the gym" loading="lazy" width="600" height="800"></div>
+        <div class="trainer-img"><picture><source srcset="gal-04.webp" type="image/webp"><img src="gal-04.jpg" alt="Portrait of Arjun Singh, fitness instructor in a blue sleeveless top at the gym" loading="lazy" width="600" height="800"></picture></div>
         <div class="card-body">
           <h3 class="trainer-name">Arjun Singh</h3>
           <p class="trainer-role">Strength &amp; Muscle Building</p>
@@ -207,7 +207,7 @@
         </div>
       </article>
       <article class="card reveal">
-        <div class="trainer-img"><img src="coach-hiit.jpg" alt="Rahul Kapoor with a jump rope in the gym" loading="lazy" width="600" height="800"></div>
+        <div class="trainer-img"><picture><source srcset="coach-hiit.webp" type="image/webp"><img src="coach-hiit.jpg" alt="Rahul Kapoor with a jump rope in the gym" loading="lazy" width="600" height="800"></picture></div>
         <div class="card-body">
           <h3 class="trainer-name">Rahul Kapoor</h3>
           <p class="trainer-role">CrossFit &amp; HIIT</p>
@@ -221,7 +221,7 @@
         </div>
       </article>
       <article class="card reveal">
-        <div class="trainer-img"><img src="trainer-neha.jpg" alt="Neha Verma in gym wear sitting on a bench in the gym" loading="lazy" width="600" height="800"></div>
+        <div class="trainer-img"><picture><source srcset="trainer-neha.webp" type="image/webp"><img src="trainer-neha.jpg" alt="Neha Verma in gym wear sitting on a bench in the gym" loading="lazy" width="600" height="800"></picture></div>
         <div class="card-body">
           <h3 class="trainer-name">Neha Verma</h3>
           <p class="trainer-role">Yoga &amp; Flexibility</p>
@@ -235,7 +235,7 @@
         </div>
       </article>
       <article class="card reveal">
-        <div class="trainer-img"><img src="trainer-sana.jpg" alt="Sana Khan smiling with dumbbells in the gym" loading="lazy" width="600" height="800"></div>
+        <div class="trainer-img"><picture><source srcset="trainer-sana.webp" type="image/webp"><img src="trainer-sana.jpg" alt="Sana Khan smiling with dumbbells in the gym" loading="lazy" width="600" height="800"></picture></div>
         <div class="card-body">
           <h3 class="trainer-name">Sana Khan</h3>
           <p class="trainer-role">Weight Loss &amp; Nutrition</p>
@@ -315,7 +315,7 @@
             <div class="testi-stars" aria-label="5 out of 5 stars">★★★★★</div>
             <p class="testi-quote">"I joined Apex six months ago and I have never felt stronger. The coaches actually watch your form and push you at the right time. Best decision I made this year."</p>
             <div class="testi-who">
-              <img src="gal-06.jpg" alt="Aarav Mehta resting on a bench after a workout" loading="lazy" width="1200" height="800">
+              <picture><source srcset="gal-06.webp" type="image/webp"><img src="gal-06.jpg" alt="Aarav Mehta resting on a bench after a workout" loading="lazy" width="400" height="400"></picture>
               <div><div class="who-name">Aarav Mehta</div><div class="who-plan">PRO Member</div></div>
             </div>
           </div>
@@ -325,7 +325,7 @@
             <div class="testi-stars" aria-label="5 out of 5 stars">★★★★★</div>
             <p class="testi-quote">"As a beginner I was nervous walking into a gym. The trainers made a plan for me, checked in every week, and I lost 8 kg without ever feeling judged."</p>
             <div class="testi-who">
-              <img src="testi-priya.jpg" alt="Priya Nair smiling after a workout in the gym" loading="lazy" width="1200" height="800">
+              <picture><source srcset="testi-priya.webp" type="image/webp"><img src="testi-priya.jpg" alt="Priya Nair smiling after a workout in the gym" loading="lazy" width="400" height="400"></picture>
               <div><div class="who-name">Priya Nair</div><div class="who-plan">ELITE Member</div></div>
             </div>
           </div>
@@ -335,7 +335,7 @@
             <div class="testi-stars" aria-label="5 out of 5 stars">★★★★★</div>
             <p class="testi-quote">"Clean floor, great equipment, and classes that never get boring. I train here five days a week and I am not going anywhere else."</p>
             <div class="testi-who">
-              <img src="gal-02.jpg" alt="Karan Malhotra wrapping his hands before training" loading="lazy" width="1200" height="1800">
+              <picture><source srcset="gal-02.webp" type="image/webp"><img src="gal-02.jpg" alt="Karan Malhotra wrapping his hands before training" loading="lazy" width="400" height="400"></picture>
               <div><div class="who-name">Karan Malhotra</div><div class="who-plan">BASIC Member</div></div>
             </div>
           </div>
@@ -357,17 +357,17 @@
     <p class="kicker reveal">Gallery</p>
     <h2 class="section-title reveal">Inside the club.</h2>
     <p class="section-sub reveal">Tap any photo to see it bigger.</p>
-    <div class="masonry reveal" id="galleryGrid">
-      <button class="gal-tile" data-full="about-equipment.jpg" data-caption="Strength zone — racks, plates and functional gear"><img src="about-equipment.jpg" alt="Racks of medicine balls and weight plates in the gym" loading="lazy" width="1200" height="800"></button>
-      <button class="gal-tile" data-full="gal-11.jpg" data-caption="Coach guiding a member on the rower"><img src="gal-11.jpg" alt="Coach encouraging a member training on a rowing machine" loading="lazy" width="1200" height="1800"></button>
-      <button class="gal-tile" data-full="prog-group.jpg" data-caption="Teamwork on the barbell"><img src="prog-group.jpg" alt="Two members loading a barbell together in a group session" loading="lazy" width="1200" height="1800"></button>
-      <button class="gal-tile" data-full="gal-03.jpg" data-caption="Ready for the first set"><img src="gal-03.jpg" alt="Member tying shoes on a bench before training" loading="lazy" width="1200" height="1800"></button>
-      <button class="gal-tile" data-full="gal-05.jpg" data-caption="The machine zone"><img src="gal-05.jpg" alt="Row of modern gym machines" loading="lazy" width="1200" height="801"></button>
-      <button class="gal-tile" data-full="coach-yoga.jpg" data-caption="Mobility coaching on the floor"><img src="coach-yoga.jpg" alt="Trainer guiding a member through a deep flexibility stretch" loading="lazy" width="1200" height="1799"></button>
-      <button class="gal-tile" data-full="prog-nutrition.jpg" data-caption="Fuel for training"><img src="prog-nutrition.jpg" alt="Colourful healthy Buddha bowl with quinoa and vegetables" loading="lazy" width="1200" height="1044"></button>
-      <button class="gal-tile" data-full="gal-07.jpg" data-caption="Heavy squats, perfect form"><img src="gal-07.jpg" alt="Member squatting with a heavy barbell" loading="lazy" width="1200" height="1800"></button>
-      <button class="gal-tile" data-full="gal-09.jpg" data-caption="After a hard session"><img src="gal-09.jpg" alt="Two athletes resting on the floor beside a barbell" loading="lazy" width="1200" height="800"></button>
-      <button class="gal-tile" data-full="about-nutrition.jpg" data-caption="Simple, healthy food"><img src="about-nutrition.jpg" alt="Fresh salad bowl with greens and grilled chicken" loading="lazy" width="1200" height="800"></button>
+    <div class="gallery-grid reveal" id="galleryGrid">
+      <button class="gal-tile" data-full="about-equipment.jpg" data-caption="Strength zone — racks, plates and functional gear"><picture><source srcset="about-equipment.webp" type="image/webp"><img src="about-equipment.jpg" alt="Racks of medicine balls and weight plates in the gym" loading="lazy" width="800" height="600"></picture></button>
+      <button class="gal-tile" data-full="gal-11.jpg" data-caption="Coach guiding a member on the rower"><picture><source srcset="gal-11.webp" type="image/webp"><img src="gal-11.jpg" alt="Coach encouraging a member training on a rowing machine" loading="lazy" width="800" height="600"></picture></button>
+      <button class="gal-tile" data-full="prog-group.jpg" data-caption="Teamwork on the barbell"><picture><source srcset="prog-group.webp" type="image/webp"><img src="prog-group.jpg" alt="Two members loading a barbell together in a group session" loading="lazy" width="800" height="600"></picture></button>
+      <button class="gal-tile" data-full="gal-03.jpg" data-caption="Ready for the first set"><picture><source srcset="gal-03.webp" type="image/webp"><img src="gal-03.jpg" alt="Member tying shoes on a bench before training" loading="lazy" width="800" height="600"></picture></button>
+      <button class="gal-tile" data-full="gal-05.jpg" data-caption="The machine zone"><picture><source srcset="gal-05.webp" type="image/webp"><img src="gal-05.jpg" alt="Row of modern gym machines" loading="lazy" width="1000" height="750"></picture></button>
+      <button class="gal-tile" data-full="coach-yoga.jpg" data-caption="Mobility coaching on the floor"><picture><source srcset="coach-yoga.webp" type="image/webp"><img src="coach-yoga.jpg" alt="Trainer guiding a member through a deep flexibility stretch" loading="lazy" width="800" height="600"></picture></button>
+      <button class="gal-tile" data-full="prog-nutrition.jpg" data-caption="Fuel for training"><picture><source srcset="prog-nutrition.webp" type="image/webp"><img src="prog-nutrition.jpg" alt="Colourful healthy Buddha bowl with quinoa and vegetables" loading="lazy" width="800" height="600"></picture></button>
+      <button class="gal-tile" data-full="gal-07.jpg" data-caption="Heavy squats, perfect form"><picture><source srcset="gal-07.webp" type="image/webp"><img src="gal-07.jpg" alt="Member squatting with a heavy barbell" loading="lazy" width="800" height="600"></picture></button>
+      <button class="gal-tile" data-full="gal-09.jpg" data-caption="After a hard session"><picture><source srcset="gal-09.webp" type="image/webp"><img src="gal-09.jpg" alt="Two athletes resting on the floor beside a barbell" loading="lazy" width="800" height="600"></picture></button>
+      <button class="gal-tile" data-full="about-nutrition.jpg" data-caption="Simple, healthy food"><picture><source srcset="about-nutrition.webp" type="image/webp"><img src="about-nutrition.jpg" alt="Fresh salad bowl with greens and grilled chicken" loading="lazy" width="800" height="600"></picture></button>
     </div>
   </div>
 </section>
